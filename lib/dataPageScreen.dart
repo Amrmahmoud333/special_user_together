@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:special_user_together/addNewData.dart';
 import 'package:special_user_together/drawerScreen.dart';
-
 import 'data.dart';
 
 class dataPageScreen extends StatefulWidget {
@@ -12,6 +11,7 @@ class dataPageScreen extends StatefulWidget {
 }
 
 class _dataPageScreenState extends State<dataPageScreen> {
+  _dataPageScreenState();
   final List<Data> userData = [];
 
   /*List<Data> get _recentData {

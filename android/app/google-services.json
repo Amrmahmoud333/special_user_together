@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "89331282603",
+    "firebase_url": "https://solution-challenge-b89fb-default-rtdb.firebaseio.com",
+    "project_id": "solution-challenge-b89fb",
+    "storage_bucket": "solution-challenge-b89fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:89331282603:android:d57c75ac176f7aabbf3dee",
+        "android_client_info": {
+          "package_name": "com.example.special_user_together"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "89331282603-sog1umhftcoc97j2vutdangr7o6djpus.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcLnHQfCRlXLtU3irLLDEh8qv0FSAEWh8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "89331282603-sog1umhftcoc97j2vutdangr7o6djpus.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:89331282603:android:3d5da3fcb0b4a8d4bf3dee",
+        "android_client_info": {
+          "package_name": "com.salmamohamed.solution_challenge_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "89331282603-8hueo9ngus82oi9t5f61fhuv7rjo0q6e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.salmamohamed.solution_challenge_project",
+            "certificate_hash": "487ec3954b498a650876022417ac9fe4027f0ed0"
+          }
+        },
+        {
+          "client_id": "89331282603-mth71nlq202aeq5bob5q978ghvirtjpu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.salmamohamed.solution_challenge_project",
+            "certificate_hash": "574d3564a8c93a588a675a5f8f49f0a5fd063e94"
+          }
+        },
+        {
+          "client_id": "89331282603-n810dp72e0eq96d59opeb4f7kuvj9q92.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.salmamohamed.solution_challenge_project",
+            "certificate_hash": "b2191e3887ccd7254a4f561c862f9dbae6418a17"
+          }
+        },
+        {
+          "client_id": "89331282603-sog1umhftcoc97j2vutdangr7o6djpus.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcLnHQfCRlXLtU3irLLDEh8qv0FSAEWh8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "89331282603-sog1umhftcoc97j2vutdangr7o6djpus.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

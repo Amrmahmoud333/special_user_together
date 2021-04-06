@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:special_user_together/dataPageScreen.dart';
-import 'package:special_user_together/loginScreen.dart';
+import 'package:special_user_together/screens/dataPageScreen.dart';
+import 'package:special_user_together/screens/loginScreen.dart';
 
 
 void main() async {

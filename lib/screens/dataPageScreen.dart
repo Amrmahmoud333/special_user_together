@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:special_user_together/addNewData.dart';
-import 'package:special_user_together/drawerScreen.dart';
-import 'data.dart';
+import 'package:special_user_together/screens/drawerScreen.dart';
+import '../models/data.dart';
 
 class dataPageScreen extends StatefulWidget {
 

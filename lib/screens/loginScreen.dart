@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dataPageScreen.dart';
 import 'dataPageScreen.dart';
@@ -10,12 +12,19 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   _LoginScreenState();
+  final _auth = FirebaseAuth.instance;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
   String _email = '';
   String _password = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Color(0xFFFBC02D),
       body: Center(
         child: Card(
@@ -29,26 +38,37 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   ///for email
                   TextFormField(
-                    key: ValueKey('email'),
-                    onSaved: (val) => _email = val,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(labelText: "Email Address"),
+
+                    controller: _emailController,
+                    decoration: InputDecoration(labelText: "Special Email"),
+                    validator: (String val ){
+
+                        if(val.isEmpty){
+                            return "Enter a Special Email";}
+
+                      return null ;
+                    },
                   ),
                   TextFormField(
-                    key: ValueKey('password'),
-                    onSaved: (val) => _password = val,
+                    controller: _passwordController,
                     decoration: InputDecoration(labelText: "Password"),
                     obscureText: true,
+                    validator: (String val ){
+                        if(val.isEmpty) {
+                          return "Enter a Password";
+                        }
+                      return null ;
+                    },
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   RaisedButton(
                     child: Text('Login'),
-                    onPressed:(){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                    dataPageScreen()),
-                    );
+                    onPressed:() async {
+                      if(_formKey.currentState.validate()){
+                        _singinWithEmailPassword();
+                      }
                     },
                   ),
                 ],
@@ -58,5 +78,24 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+  void _singinWithEmailPassword() async {
+    try {
+        final User user = (await _auth.signInWithEmailAndPassword
+          (email: _emailController.text, password: _passwordController.text)).user;
+        if(!user.emailVerified){
+          await user.sendEmailVerification();
+        }
+        Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+          return dataPageScreen(
+          user: user,
+        );
+        }));
+
+    }
+    catch(e){
+      _scaffoldKey.currentState.showBottomSheet((context) => Text('flaied'));
+      print(e);
+    }
   }
 }

@@ -81,27 +81,39 @@ class _dataPageScreenState extends State<dataPageScreen> {
         child: StreamBuilder(
           stream: FirebaseFirestore.instance.collection('data').snapshots(),
           builder: (ctx , snapshot){
-            final docs = snapshot.data.docs;
-            if (snapshot.connectionState == ConnectionState.waiting || snapshot.data == null)
-            { return CircularProgressIndicator(); }
-            return GridView.builder(
-                itemCount: docs.length,
-              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 500,
-                  childAspectRatio: 3 / 2,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20),
-                itemBuilder: (ctx , i){
-                  return Card(
+           // final docs = snapshot.data.docs;
+            if (snapshot.connectionState == ConnectionState.waiting &&
+                snapshot.data == null) {
+              return CircularProgressIndicator();
+            }
+            return ListView.builder(
+              itemCount: snapshot.data.docs.length,
+              itemBuilder: (ctx, i) {
+                return Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 5, 8, 0),
+                  child: Card(
                     elevation: 5,
-                    child: ListTile(
-                      title:  Text(docs[i]['address']),
-                      subtitle:  Text(docs[i]['phone']),
-                      trailing: Text(docs[i]['numFamilyPerson']),
+                    child: Container(
+                      margin: const EdgeInsets.all(15),
+                      child: Column(
+                        children: [
+                          Text('Address : ' +
+                              snapshot.data.docs[i]['address']),
+                          Text('Phone : ' + snapshot.data.docs[i]['phone']),
+                          Text('Number of Family :' +
+                              snapshot.data.docs[i]['numFamilyPerson']),
+                        ],
+                      ),
                     ),
-                  );
-                },
-
+                    /*   child: ListTile(
+                          title: Text(snapshot.data.docs[i]['address']),
+                          subtitle: Text(snapshot.data.docs[i]['phone']),
+                          trailing:
+                              Text(snapshot.data.docs[i]['numFamilyPerson']),
+                        ),*/
+                  ),
+                );
+              },
             );
           },
         ),

@@ -5,6 +5,7 @@ import 'package:special_user_together/addNewData.dart';
 import 'package:special_user_together/screens/drawerScreen.dart';
 import 'package:special_user_together/services/dataBaseManager.dart';
 import '../models/data.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class dataPageScreen extends StatefulWidget {
     final User user;
@@ -61,7 +62,12 @@ class _dataPageScreenState extends State<dataPageScreen> {
     var statusBarHeight = MediaQuery.of(context).padding.top;
 
     final appBar = AppBar(
-      title: Text('Data'),
+      title: Text('Data',style: GoogleFonts.lato(
+
+        fontSize: 21,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),),
       actions: <Widget>[
         IconButton(
           icon: Icon(Icons.add),
@@ -96,12 +102,29 @@ class _dataPageScreenState extends State<dataPageScreen> {
                     child: Container(
                       margin: const EdgeInsets.all(15),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text('Address : ' +
-                              snapshot.data.docs[i]['address']),
-                          Text('Phone : ' + snapshot.data.docs[i]['phone']),
+                              snapshot.data.docs[i]['address']
+                            ,style: GoogleFonts.lato(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey[700],
+
+                          ),),
+                          Text('Phone : ' + snapshot.data.docs[i]['phone'],style: GoogleFonts.lato(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey[700],
+
+                          ),),
                           Text('Number of Family :' +
-                              snapshot.data.docs[i]['numFamilyPerson']),
+                              snapshot.data.docs[i]['numFamilyPerson'],style: GoogleFonts.lato(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            //color: Color(0xFFb6a57e),
+                            color: Colors.grey[700],
+                          ),),
                         ],
                       ),
                     ),
